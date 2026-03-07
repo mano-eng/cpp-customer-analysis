@@ -1,11 +1,15 @@
+/*
+Program: Customer Service Analysis
+Description: Reads customer data for 30 days, calculates daily income,
+counts customer types, and finds the maximum service + waiting time.
+*/
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int days = 30;          // Number of days
-    int maxTime = 0;        // Maximum (service + waiting) time
-    int minFollowers = 0;   // Example variable (if needed later)
+    int days = 30;      // number of days
+    int maxTime = 0;    // maximum (service + waiting) time
 
     for (int d = 1; d <= days; d++)
     {
@@ -17,34 +21,28 @@ int main()
         int men = 0;
         int dailyIncome = 0;
 
+        // process customers for the day
         for (int i = 0; i < numCustomers; i++)
         {
-            char type;      // K = Kid, M = Man
-            int duration;
-            int waiting;
-            int price;
+            char type;
+            int duration, waiting, price;
 
             cin >> type >> duration >> waiting >> price;
 
             int totalTime = duration + waiting;
 
-            // Track maximum total time
             if (totalTime > maxTime)
-            {
                 maxTime = totalTime;
-            }
 
-            // Count customer types
             if (type == 'K')
                 kids++;
             else if (type == 'M')
                 men++;
 
-            // Calculate income
             dailyIncome += price;
         }
 
-        // Print income only if kids > men
+        // print income only if kids > men
         if (kids > men)
         {
             cout << "Income for day " << d << " = " << dailyIncome << endl;

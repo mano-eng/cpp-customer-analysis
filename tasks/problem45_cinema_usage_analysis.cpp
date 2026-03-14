@@ -14,47 +14,47 @@ using namespace std;
 int main()
 {
     int N;
-    cin >> N;   // number of cinema halls
+    cin >> N;
 
-    int capacity;
-    int reserved;
+    int cap;
+    int r;
 
-    double ratio;
+    double rt;
 
-    double maxRatio = -1;
-    int maxDay = 0;
+    double max = -9999;
+    double min = 9999;
 
-    double minRatio = 999999;
-    int minDay = 0;
-    int minHall = 0;
+    int pos1 = 0;
+    int pos2 = 0;
+    int hall = 0;
 
     for(int h = 1; h <= N; h++)
     {
-        cin >> capacity;
+        cin >> cap;
 
         for(int d = 1; d <= 30; d++)
         {
-            cin >> reserved;
+            cin >> r;
 
-            ratio = (double)reserved / capacity;
+            rt = (double)r / cap;
 
-            if(ratio > maxRatio)
+            if(rt > max)
             {
-                maxRatio = ratio;
-                maxDay = d;
+                max = rt;
+                pos1 = d;
             }
 
-            if(ratio < minRatio)
+            if(rt < min)
             {
-                minRatio = ratio;
-                minDay = d;
-                minHall = h;
+                min = rt;
+                pos2 = d;
+                hall = h;
             }
         }
     }
 
-    cout << "Maximum usage day = " << maxDay << endl;
-    cout << "Lowest day is: day " << minDay << " at hall " << minHall << endl;
+    cout << pos1 << endl;
+    cout << "The lowest day is: day " << pos2 << " at hall " << hall << endl;
 
     return 0;
 }

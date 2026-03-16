@@ -1,45 +1,40 @@
-/* Problem 52
-   Read stock prices for 12 months.
-   Count increases and decreases and calculate their averages.
-*/
-
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int prev, curr;
-    int ct1 = 0, ct2 = 0;   // counts
-    int ct3 = 0, ct4 = 0;   // sums
-    int ave1, ave2;        // averages
+    int prev, current;
+    int ct1=0, ct2=0;
+    int sum1=0, sum2=0;
+    float avg1, avg2;
 
     cin >> prev;
 
-    for(int i = 1; i < 12; i++)
+    for(int i=1;i<12;i++)
     {
-        cin >> curr;
+        cin >> current;
 
-        if(curr > prev)
+        if(current > prev)
         {
             ct1++;
-            ct3 += (curr - prev);
+            sum1 += (current - prev);
         }
-        else if(curr < prev)
+        else if(current < prev)
         {
             ct2++;
-            ct4 += (prev - curr);
+            sum2 += (prev - current);
         }
 
-        prev = curr;
+        prev = current;
     }
 
-    ave1 = ct3 / ct1;   // average increase
-    ave2 = ct4 / ct2;   // average decrease
+    avg1 = sum1 / ct1;
+    avg2 = sum2 / ct2;
 
     cout << ct1 << endl;
     cout << ct2 << endl;
-    cout << ave1 << endl;
-    cout << ave2 << endl;
+    cout << avg1 << endl;
+    cout << avg2 << endl;
 
     return 0;
 }

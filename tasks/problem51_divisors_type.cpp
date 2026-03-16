@@ -1,39 +1,31 @@
-/* Problem 52
-   Read a value V and check its divisors.
-   Display EVENS, ODDS, or MIXED.
-*/
-
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int v, num = 1;
-    int even = 0, odd = 0;
+    int v, num = 1, ct1 = 0, ct2 = 0;
 
     cin >> v;
 
     while(num < v)
     {
-        if(v % num == 0)
+        if(v % num == 0)   // num divisor
         {
-            cout << num << " ";
-
             if(num % 2 == 0)
-                even++;
+                ct1++;     // even divisor
             else
-                odd++;
+                ct2++;     // odd divisor
         }
 
         num++;
     }
 
-    cout << endl;
-
-    if(even > 0 && odd > 0)
+    if(ct1 > 0 && ct2 > 0)
         cout << "MIXED";
-    else if(even > 0)
+
+    else if(ct1 > 0)
         cout << "EVENS";
+
     else
         cout << "ODDS";
 

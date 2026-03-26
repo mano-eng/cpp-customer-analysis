@@ -1,4 +1,4 @@
-// problem69_alternating_digits_check.cpp
+ // problem69_alternating_digits_check.cpp
 // الفكرة: بنقرأ N أرقام
 // وبناخد من كل رقم digit بالتبادل:
 // (1 → right) (2 → left) (3 → right) ...
